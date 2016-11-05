@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>TuioApplet</title>
+</head>
+
+<script src="https://www.java.com/js/deployJava.js"></script>
+<script>
+    var attributes = {id: 'TuioDemo',
+        code:'TuioApplet.class',
+        archive:'TuioDemo.jar',
+        width:710,
+        height:540};
+    var parameters = { fontSize:16, permissions:'sandbox' };
+    var version = '1.8';
+    deployJava.runApplet(attributes, parameters, version);
+</script>
+<body bgcolor="#EEEEEE">
+<h2>TuioApplet</h2>
+
+<p>
+<applet archive="TuioDemo.jar" code="TuioApplet.class" width="640" height="480" hspace="10" vspace="10">
+<param name="port" value="3333">
+</applet>
+</p>
+
+<canvas width="640" height="480">
+
+</canvas>
+</body>
+</html>

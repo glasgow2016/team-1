@@ -46,6 +46,7 @@ public class TuioDemo  {
 		demo = new TuioDemoComponent();
 		device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		invisibleCursor = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "invisible cursor");
+		demo.loadImages();
 		setupWindow();
 		showWindow();
 	}

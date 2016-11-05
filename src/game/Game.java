@@ -7,7 +7,7 @@ public class Game {
 		
 	}
 	
-	private generateScenario(){
+	private void generateScenario(){
 		
 	}
 }

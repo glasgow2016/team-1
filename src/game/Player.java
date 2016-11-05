@@ -38,5 +38,8 @@ public class Player {
 			break;
 		}
 	}
-	
+
+	public void stop() {
+
+	}
 }

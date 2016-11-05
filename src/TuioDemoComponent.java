@@ -46,6 +46,7 @@ public class TuioDemoComponent extends JComponent implements TuioListener {
 	public static int width, height;
 	private float scale = 1.0f;
 	public boolean verbose = false;
+    private Map<String, BufferedImage> images = new HashMap<>();
 			
 	public void setSize(int w, int h) {
 		super.setSize(w,h);
@@ -53,7 +54,27 @@ public class TuioDemoComponent extends JComponent implements TuioListener {
 		height = h;
 		scale  = height/(float)TuioDemoComponent.table_size;	
 	}
-	
+
+	public void loadImages(){
+		String image_root = "/Users/megamolis/Desktop/code4g/TUIO11_JAVA/assets/";
+		String image_suffix = ".png";
+		String[] paths = {
+				"car",
+				"junction",
+				"t-junction",
+				"t-junction2",
+				"traffic-light-template"
+		};
+
+		for(int i = 0; i < paths.length; i++){
+			try{
+                BufferedImage img = ImageIO.read(new File(image_root + paths[i] + image_suffix));
+                this.images.put(paths[i], img);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	public void addTuioObject(TuioObject tobj) {
 		TuioDemoObject demo = new TuioDemoObject(tobj);
 		objectList.put(tobj.getSessionID(),demo);
@@ -141,19 +162,13 @@ public class TuioDemoComponent extends JComponent implements TuioListener {
 
 	public void update(Graphics g) {
 
-		BufferedImage img = null;
-		try {
-			img = ImageIO.read(new File("/Users/megamolis/Desktop/code4g/TUIO11_JAVA/assets/t-junction.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 	
 //		g2.setColor(Color.white);
 //		g2.fillRect(0,0,width,height);
-        g2.drawImage(img, 0, 0, width, height, this);
+        g2.drawImage(images.get("junction"), 0, 0, width, height, this);
 	
 		int w = (int)Math.round(width-scale*finger_size/2.0f);
 		int h = (int)Math.round(height-scale*finger_size/2.0f);

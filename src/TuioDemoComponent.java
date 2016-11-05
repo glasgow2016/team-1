@@ -26,7 +26,10 @@ import java.awt.*;
 import java.awt.geom.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import TUIO.*;
 
@@ -137,13 +140,20 @@ public class TuioDemoComponent extends JComponent implements TuioListener {
 	}
 
 	public void update(Graphics g) {
-	
+
+		BufferedImage img = null;
+		try {
+			img = ImageIO.read(new File("/Users/megamolis/Desktop/code4g/TUIO11_JAVA/assets/t-junction.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 	
-		g2.setColor(Color.white);
-		g2.fillRect(0,0,width,height);
+//		g2.setColor(Color.white);
+//		g2.fillRect(0,0,width,height);
+        g2.drawImage(img, 0, 0, width, height, this);
 	
 		int w = (int)Math.round(width-scale*finger_size/2.0f);
 		int h = (int)Math.round(height-scale*finger_size/2.0f);

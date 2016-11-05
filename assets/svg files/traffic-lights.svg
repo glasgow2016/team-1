@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg17737"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   width="75"
+   height="150"
+   viewBox="0 0 75 150"
+   sodipodi:docname="traffic-lights.svg"
+   inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-red.png"
+   inkscape:export-xdpi="60.07"
+   inkscape:export-ydpi="60.07">
+  <metadata
+     id="metadata17743">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs17741" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     id="namedview17739"
+     showgrid="false"
+     inkscape:zoom="1.5733333"
+     inkscape:cx="23.834746"
+     inkscape:cy="75"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg17737" />
+  <image
+     width="72.092545"
+     height="144.18509"
+     preserveAspectRatio="none"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAACWCAYAAACW7nUbAAAAQklEQVR42u3BAQEAAACCIP+vbkhA
+AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMC7AbBeAAHxsz6dAAAA
+AElFTkSuQmCC
+"
+     id="image17745"
+     x="1.4537262"
+     y="2.3055468" />
+  <rect
+     style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.15298927;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect6456"
+     width="68.766327"
+     height="143.92952"
+     x="3.116838"
+     y="3.6552517"
+     rx="3.8371477"
+     ry="5.995544"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <rect
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect6458"
+     width="55.900799"
+     height="130.79747"
+     x="9.5495939"
+     y="10.62104"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <ellipse
+     style="opacity:1;fill:#999999;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path6460-5"
+     cx="37.500011"
+     cy="76.937508"
+     rx="18.204346"
+     ry="18.064312"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <ellipse
+     style="opacity:1;fill:#999999;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path6460-5-5"
+     cx="37.500011"
+     cy="118.47311"
+     rx="18.204346"
+     ry="18.064312"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <ellipse
+     style="opacity:1;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path6460"
+     cx="-32.593353"
+     cy="25.969864"
+     rx="18.782537"
+     ry="18.638056"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <ellipse
+     style="opacity:1;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path6460-5-4"
+     cx="-33.508335"
+     cy="69.990631"
+     rx="18.782537"
+     ry="18.638056"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <ellipse
+     style="opacity:1;fill:#44aa00;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path6460-5-4-7"
+     cx="-32.262909"
+     cy="115.76743"
+     rx="18.782537"
+     ry="18.638056"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-prepare.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+  <ellipse
+     style="opacity:1;fill:#999999;fill-opacity:1;stroke:none;stroke-width:38.11500168;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path6460-5-3"
+     cx="37.5"
+     cy="35.593224"
+     rx="18.204346"
+     ry="18.064312"
+     inkscape:export-filename="/home/bianca/Desktop/assets/traffic-lights-amber.png"
+     inkscape:export-xdpi="60.07"
+     inkscape:export-ydpi="60.07" />
+</svg>

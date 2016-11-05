@@ -7,14 +7,14 @@ public class Bicycle extends Player {
 	}
 	
 	public void move(String direction){
-		Player.move(direction);
+		super.move(direction);
 	}
 	
 	public int getPosX(){
-		Player.getPosX();
+		return super.getPosX();
 	}
 	
 	public int getPosY(){
-		Player.getPosY();
+		return super.getPosY();
 	}
 }

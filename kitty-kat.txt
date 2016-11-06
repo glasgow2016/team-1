@@ -1,3 +1,3 @@
 [
-  "The average litter of kittens is between 2 - 6 kittens."
+  "As child Nikola Tesla was inspired to understand the secrets of electricity after being shocked by static electricity from his beloved cat, Macak."
 ]

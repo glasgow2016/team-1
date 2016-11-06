@@ -1,3 +1,3 @@
 [
-  "While many cats enjoy milk, it will give some cats diarrhea."
+  "Cats can be right-pawed or left-pawed."
 ]

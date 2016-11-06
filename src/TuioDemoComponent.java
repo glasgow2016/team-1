@@ -47,6 +47,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
     private MovingSprite car = new MovingSprite(50, 200, 30);
+    private MovingSprite bike = new MovingSprite(250, 500, 30);
     private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
 
@@ -65,6 +66,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         String image_suffix = ".png";
         String[] paths = {
                 "car",
+                "bike",
                 "junction",
                 "t-junction",
                 "t-junction2",
@@ -145,6 +147,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         /**Car**/
         g2d.drawImage(images.get("car"), car.getXPos(), car.getYPos(), 150, 75, this);
 
+        /**Bike**/
+        g2d.drawImage(images.get("bike"), bike.getXPos(), bike.getYPos(), 150, 100, this);
+
         /**Traffic Lights**/
         g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
         g2d.drawImage(lightN.getImage(), 400,  60, 40, 80, this);
@@ -167,6 +172,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
             TuioObject tobj = objects.nextElement();
             if (tobj.getSymbolID() == 41) {
                 car.moveRight();
+            }
+            else if (tobj.getSymbolID() == 39) {
+                bike.moveUp();
             }
             else if (tobj.getSymbolID() == 37) {
                 lightS.changeToGreen();

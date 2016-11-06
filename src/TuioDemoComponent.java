@@ -32,6 +32,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import TUIO.*;
+import game.CreateScene;
 import game.MovingSprite;
 import game.TrafficLight;
 import game.Background;
@@ -51,6 +52,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private MovingSprite bike = new MovingSprite(250, 500, 30);
     private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
+
+
+
 
     public TuioDemoComponent() throws IOException {
     }
@@ -90,7 +94,19 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
             lightN = new TrafficLight(200, 200, images);
             lightW = new TrafficLight(200, 200, images);
 
+            /**Scenes**/
+            CreateScene scene1 = new CreateScene();
+            scene1.addObject("light1", lightE);
+            scene1.addObject("light2", lightN);
+            scene1.addObject("light3", lightS);
+            scene1.addObject("light4", lightW);
+
+            CreateScene scene2 = new CreateScene();
+            scene1.addObject("light1", lightE);
+            scene1.addObject("light3", lightS);
+            scene1.addObject("light4", lightW);
         }
+
     }
 
     public void addTuioObject(TuioObject tobj) {

@@ -47,8 +47,8 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private float scale = 1.0f;
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
-    private MovingSprite car = new MovingSprite(50, 200, 30);
-    private MovingSprite bike = new MovingSprite(250, 500, 30);
+    private MovingSprite car = new MovingSprite(-200, 300, 30);
+    private MovingSprite bike = new MovingSprite(600, 800, 30);
     private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
 
@@ -102,10 +102,10 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 e.printStackTrace();
             }
             bg = new Background(images);
-            lightE = new TrafficLight(200, 200, 40, 80, images);
-            lightS = new TrafficLight(200, 200, 40, 80, images);
-            lightN = new TrafficLight(200, 200, 40, 80, images);
-            lightW = new TrafficLight(200, 200, 40, 80, images);
+            lightS = new TrafficLight(300, 580, 40, 80, images);
+            lightN = new TrafficLight( 900, 80, 40, 80, images);
+            lightE = new TrafficLight(900, 580, 40, 80, images);
+            lightW = new TrafficLight(300, 80, 40, 80, images);
 
             scene1[0] = lightE;
             scene1[1] = lightS;
@@ -181,11 +181,12 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         g2d.drawImage(images.get("bike"), bike.getXPos(), bike.getYPos(), 150, 100, this);
 
         /**Traffic Lights**/
-        g2d.drawImage(lightS.getImage(), 200, 300, lightS.getWidth(), lightS.getHeight(), this);
-        g2d.drawImage(lightN.getImage(), 400, 60, lightN.getWidth(), lightN.getHeight(), this);
 
-        g2d.drawImage(lightE.getImage(), 400, 300, lightE.getWidth(), lightE.getHeight(), this);
-        g2d.drawImage(lightW.getImage(), 200, 60, lightW.getWidth(), lightW.getHeight(), this);
+        g2d.drawImage(lightS.getImage(), lightS.getXPos(), lightS.getYPos(), lightS.getWidth(), lightS.getHeight(), this);
+        g2d.drawImage(lightN.getImage(), lightN.getXPos(), lightN.getYPos(), lightN.getWidth(), lightN.getHeight(), this);
+
+        g2d.drawImage(lightE.getImage(), lightE.getXPos(), lightE.getYPos(), lightE.getWidth(), lightE.getHeight(), this);
+        g2d.drawImage(lightW.getImage(), lightW.getXPos(), lightW.getYPos(), lightW.getWidth(), lightW.getHeight(), this);
 
         update(g);
     }
@@ -240,10 +241,16 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 }
                 case 48: {
                     bg.moveTop();
+                    for(TrafficLight light:scene1){
+                        light.setYpos(light.getYPos() + 5);
+                    }
                     break;
                 }
                 case 49: {
                     bg.moveDown();
+                    for(TrafficLight light:scene1){
+                        light.setYpos(light.getYPos() - 5);
+                    }
                     break;
                 }
             }

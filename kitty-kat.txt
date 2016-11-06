@@ -1,3 +1,3 @@
 [
-  "The word \"cat\" in various languages: French: chat; German: katze; Italian: gatto; Spanish/Portugese: gato; Yiddish: kats; Maltese: qattus; Swedish/Norwegian: katt; Dutch: kat; Icelandic: kottur; Greek: catta; Hindu: katas; Japanese:neko; Polish: kot; Ukranian: kotuk; Hawiian: popoki; Russian: koshka; Latin: cattus; Egyptian: mau; Turkish: kedi; Armenian: Gatz; Chinese: mio; Arabic: biss; Indonesian: qitta; Bulgarian: kotka; Malay: kucing; Thai/Vietnamese: meo; Romanian: pisica; Lithuanian: katinas; Czech: kocka; Slovak: macka; Armenian: gatz; Basque: catua; Estonian: kass; Finnish: kissa; Swahili: paka."
+  "Why do people have cats? One survey that looked into the reasons people have cats found the following: companionship/comfort 27%, stress/blood pressure relief --22%, something to love/feel neededâ 9%, lifts depression/boosts moods 10%, subject of communication/stimulates interest 8%."
 ]

@@ -1,3 +1,3 @@
 [
-  "Cats' hearing stops at 65 khz (kilohertz); humans' hearing stops at 20 khz."
+  "As child Nikola Tesla was inspired to understand the secrets of electricity after being shocked by static electricity from his beloved cat, Macak."
 ]

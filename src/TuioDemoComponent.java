@@ -32,6 +32,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import TUIO.*;
+import game.MovingSprite;
 import game.TrafficLight;
 
 public class TuioDemoComponent extends JPanel implements TuioListener {
@@ -45,6 +46,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private float scale = 1.0f;
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
+    private MovingSprite car = new MovingSprite(50, 200, 30);
     private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
 
@@ -140,6 +142,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.drawImage(bg.center, 0, 0, this.getWidth(), this.getHeight(), this);
 
+        /**Car**/
+        g2d.drawImage(images.get("car"), car.getXPos(), car.getYPos(), 150, 75, this);
+
         /**Traffic Lights**/
         g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
         g2d.drawImage(lightN.getImage(), 400,  60, 40, 80, this);
@@ -160,8 +165,8 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Enumeration<TuioObject> objects = objectList.elements();
         while (objects.hasMoreElements()) {
             TuioObject tobj = objects.nextElement();
-            if (tobj.getSymbolID() == 1) {
-                bg.moveRight();
+            if (tobj.getSymbolID() == 41) {
+                car.moveRight();
             }
             else if (tobj.getSymbolID() == 37) {
                 lightS.changeToGreen();

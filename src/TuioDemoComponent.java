@@ -197,6 +197,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 lightE.changeToAmber();
                 lightW.changeToAmber();
             }
+            else if (tobj.getSymbolID() == 41) {
+                car.moveRight();
+            }
         }
     }
 

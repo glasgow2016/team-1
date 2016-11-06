@@ -22,4 +22,16 @@ public class MovingSprite extends Sprite{
     public void moveRight() {
         xpos += 1;
     }
+
+    public void moveUp() {
+        ypos -= 1;
+    }
+
+    public void moveDown() {
+        ypos += 1;
+    }
+
+    public void moveLeft() {
+        xpos -= 1;
+    }
 }

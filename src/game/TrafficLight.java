@@ -1,7 +1,6 @@
 package game;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,13 +17,12 @@ public class TrafficLight extends Sprite{
         image = image1;
     }
 
-    public void changeImage() {
-        if (image1.equals(image)) {
-            image = image2;
-        }
-        else {
-            image = image1;
-        }
+    public void changeToGreen() {
+        image = image1;
+    }
+
+    public void changeToRed() {
+        image = image2;
     }
 
     public BufferedImage getImage() {

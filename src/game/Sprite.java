@@ -1,4 +1,7 @@
 package game;
+
+import java.util.Map;
+
 public class Sprite {
 	public int xpos, ypos;
 	/**

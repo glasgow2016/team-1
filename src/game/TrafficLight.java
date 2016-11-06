@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -15,10 +16,10 @@ public class TrafficLight extends Sprite{
     /**
      * Created by bianca on 06/11/16.
      */
-    public TrafficLight(int x, int y) throws IOException {
+    public TrafficLight(int x, int y, Map<String, BufferedImage> images) throws IOException {
         super(x, y);
-        image1 = ImageIO.read(new File("../assets/traffic-lights-green.png"));
-        image2 = ImageIO.read(new File("../assets/traffic-lights-red.png"));
+        image1 = images.get("traffic-lights-green");
+        image2 = images.get("traffic-lights-red");
         image = image1;
     }
 

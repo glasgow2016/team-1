@@ -28,6 +28,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -48,11 +49,11 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private float scale = 1.0f;
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
-    private Ball ball = new Ball();
-    private TrafficLight lightE = new TrafficLight(200, 200);
-    private TrafficLight lightS = new TrafficLight(200, 200);
-    private TrafficLight lightN = new TrafficLight(200, 200);
-    private TrafficLight lightW = new TrafficLight(200, 200);
+    private TrafficLight lightE ;
+    private TrafficLight lightS ;
+    private TrafficLight lightN ;
+    private TrafficLight lightW ;
+    Background bg;
 
     public TuioDemoComponent() throws IOException {
     }
@@ -64,24 +65,32 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         scale = height / (float) TuioDemoComponent.table_size;
     }
 
-    public void loadImages() {
-        String image_root = "../assets/";
+    public void loadImages() throws IOException {
+        File abs_root = Paths.get("assets").toAbsolutePath().toFile();
         String image_suffix = ".png";
         String[] paths = {
                 "car",
                 "junction",
                 "t-junction",
                 "t-junction2",
-                "traffic-light-template"
+                "traffic-light-template",
+                "traffic-lights-green",
+                "traffic-lights-red"
         };
 
         for (int i = 0; i < paths.length; i++) {
             try {
-                BufferedImage img = ImageIO.read(new File(image_root + paths[i] + image_suffix));
+                BufferedImage img = ImageIO.read(new File(abs_root, paths[i] + image_suffix));
                 this.images.put(paths[i], img);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            bg = new Background();
+            lightE = new TrafficLight(200, 200, images);
+            lightS = new TrafficLight(200, 200, images);
+            lightN = new TrafficLight(200, 200, images);
+            lightW = new TrafficLight(200, 200, images);
+
         }
     }
 
@@ -136,8 +145,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        g2d.drawImage(images.get("junction"), 0, 0, this.getWidth(), this.getHeight(), this);
-        g2d.fillOval(ball.x, ball.y, 30, 30);
+        g2d.drawImage(bg.center, 0, 0, this.getWidth(), this.getHeight(), this);
 
         /**Traffic Lights**/
         g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
@@ -160,7 +168,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         while (objects.hasMoreElements()) {
             TuioObject tobj = objects.nextElement();
             if (tobj.getSymbolID() == 1) {
-                ball.moveBall();
+                bg.moveRight();
             }
             else if (tobj.getSymbolID() == 37) {
                 lightS.changeToGreen();
@@ -177,13 +185,14 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         }
     }
 
-    class Ball {
+    class Background{
         int x = 0;
         int y = 0;
+        BufferedImage center = images.get("junction");
+        BufferedImage right = images.get("t-junction");
 
-        public void moveBall() {
+        public void moveRight() {
             x = x + 1;
-            y = y + 1;
         }
     }
 

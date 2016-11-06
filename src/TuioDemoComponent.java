@@ -32,7 +32,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import TUIO.*;
-import game.CreateScene;
 import game.MovingSprite;
 import game.TrafficLight;
 import game.Background;
@@ -53,7 +52,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
 
-
+    /**Scenes**/
+    TrafficLight[] scene1 = new TrafficLight[3];
+    TrafficLight[] scene2 = new TrafficLight[2];
 
 
     public TuioDemoComponent() throws IOException {
@@ -66,8 +67,17 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         scale = height / (float) TuioDemoComponent.table_size;
         bg.setWidth(getWidth());
         bg.setHeight(-getHeight());
-        lightN.setWidth((int) (width * 0.06));
-        lightN.setHeight((int) (height * 0.17));
+
+        for(TrafficLight light:scene1) {
+            light.setWidth((int) (width * 0.06));
+            light.setHeight((int) (height * 0.17));
+        }
+
+        for(TrafficLight light:scene2) {
+            light.setWidth((int) (width * 0.06));
+            light.setHeight((int) (height * 0.17));
+        }
+
     }
 
     public void loadImages() throws IOException {
@@ -97,17 +107,14 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
             lightN = new TrafficLight(200, 200, 40, 80, images);
             lightW = new TrafficLight(200, 200, 40, 80, images);
 
-            /**Scenes**/
-            CreateScene scene1 = new CreateScene();
-            scene1.addObject("light1", lightE);
-            scene1.addObject("light2", lightN);
-            scene1.addObject("light3", lightS);
-            scene1.addObject("light4", lightW);
+            scene1[0] = lightE;
+            scene1[1] = lightS;
+            scene1[2] = lightN;
+            scene1[3] = lightW;
 
-            CreateScene scene2 = new CreateScene();
-            scene1.addObject("light1", lightE);
-            scene1.addObject("light3", lightS);
-            scene1.addObject("light4", lightW);
+            scene2[0] = lightE;
+            scene2[1] = lightN;
+            scene2[2] = lightW;
         }
 
     }

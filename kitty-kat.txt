@@ -1,3 +1,3 @@
 [
-  "Normal body temperature for a cat is 102 degrees F."
+  "A cat can sprint at about thirty-one miles per hour."
 ]

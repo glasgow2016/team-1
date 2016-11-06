@@ -44,6 +44,7 @@ public class TuioDemo  {
 	
 	public TuioDemo() {
 		demo = new TuioDemoComponent();
+
 		device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		invisibleCursor = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "invisible cursor");
 		demo.loadImages();
@@ -114,15 +115,15 @@ public class TuioDemo  {
 		frame.repaint();
 	}
 	
-	public static void main(String argv[]) {
-		
+	public static void main(String argv[]) throws InterruptedException {
+
 		TuioDemo demo = new TuioDemo();
 		TuioClient client = null;
- 
+
 		switch (argv.length) {
 			case 1:
-				try { 
-					client = new TuioClient( Integer.parseInt(argv[0])); 
+				try {
+					client = new TuioClient(Integer.parseInt(argv[0]));
 				} catch (Exception e) {
 					System.out.println("usage: java TuioDemo [port]");
 					System.exit(0);
@@ -131,19 +132,26 @@ public class TuioDemo  {
 			case 0:
 				client = new TuioClient();
 				break;
-			default: 
+			default:
 				System.out.println("usage: java TuioDemo [port]");
 				System.exit(0);
 				break;
 		}
-		
-		if (client!=null) {
+
+		if (client != null) {
 			client.addTuioListener(demo.getTuioListener());
 			client.connect();
 		} else {
 			System.out.println("usage: java TuioDemo [port]");
 			System.exit(0);
 		}
+		while (true) {
+			demo.repaint();
+			Thread.sleep(10);
+		}
 	}
-	
+
+	private void repaint() {
+		demo.repaint();
+	}
 }

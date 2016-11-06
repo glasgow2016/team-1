@@ -29,10 +29,13 @@ import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import TUIO.*;
+import game.TrafficLight;
 
 public class TuioDemoComponent extends JPanel implements TuioListener {
 
@@ -46,6 +49,13 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
     private Ball ball = new Ball();
+    private TrafficLight lightE = new TrafficLight(200, 200);
+    private TrafficLight lightS = new TrafficLight(200, 200);
+    private TrafficLight lightN = new TrafficLight(200, 200);
+    private TrafficLight lightW = new TrafficLight(200, 200);
+
+    public TuioDemoComponent() throws IOException {
+    }
 
     public void setSize(int w, int h) {
         super.setSize(w, h);
@@ -55,7 +65,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     }
 
     public void loadImages() {
-        String image_root = "/Users/megamolis/Desktop/code4g/TUIO11_JAVA/assets/";
+        String image_root = "../assets/";
         String image_suffix = ".png";
         String[] paths = {
                 "car",
@@ -129,6 +139,13 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         g2d.drawImage(images.get("junction"), 0, 0, this.getWidth(), this.getHeight(), this);
         g2d.fillOval(ball.x, ball.y, 30, 30);
 
+        /**Traffic Lights**/
+        g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
+        g2d.drawImage(lightN.getImage(), 400,  60, 40, 80, this);
+
+        g2d.drawImage(lightE.getImage(), 400, 300, 40, 80, this);
+        g2d.drawImage(lightW.getImage(), 200,  60, 40, 80, this);
+
         update(g);
     }
 
@@ -142,8 +159,21 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Enumeration<TuioObject> objects = objectList.elements();
         while (objects.hasMoreElements()) {
             TuioObject tobj = objects.nextElement();
-            if (tobj.getSymbolID() == 1)
+            if (tobj.getSymbolID() == 1) {
                 ball.moveBall();
+            }
+            else if (tobj.getSymbolID() == 37) {
+                lightS.changeToGreen();
+                lightN.changeToGreen();
+                lightE.changeToRed();
+                lightW.changeToRed();
+            }
+            else if (tobj.getSymbolID() == 36) {
+                lightS.changeToRed();
+                lightN.changeToRed();
+                lightE.changeToGreen();
+                lightW.changeToGreen();
+            }
         }
     }
 

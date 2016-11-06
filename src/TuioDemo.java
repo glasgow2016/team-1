@@ -26,6 +26,7 @@ import java.awt.*;
 import java.awt.geom.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 import TUIO.*;
@@ -42,7 +43,7 @@ public class TuioDemo  {
 	private GraphicsDevice device;
 	private Cursor invisibleCursor;
 	
-	public TuioDemo() {
+	public TuioDemo() throws IOException {
 		demo = new TuioDemoComponent();
 
 		device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -115,7 +116,7 @@ public class TuioDemo  {
 		frame.repaint();
 	}
 	
-	public static void main(String argv[]) throws InterruptedException {
+	public static void main(String argv[]) throws InterruptedException, IOException {
 
 		TuioDemo demo = new TuioDemo();
 		TuioClient client = null;

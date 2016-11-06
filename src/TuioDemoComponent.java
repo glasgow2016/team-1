@@ -32,6 +32,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import TUIO.*;
+import game.MovingSprite;
 import game.TrafficLight;
 import game.Background;
 
@@ -46,6 +47,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private float scale = 1.0f;
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
+    private MovingSprite car = new MovingSprite(50, 200, 30);
     private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
 
@@ -142,6 +144,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.drawImage(bg.getCenter(), bg.getX(), 0, this.getWidth(), this.getHeight(), this);
         g2d.drawImage(bg.getRight(), bg.getWidth() - 10, 0, this.getWidth(), this.getHeight(), this);
+
+        /**Car**/
+        g2d.drawImage(images.get("car"), car.getXPos(), car.getYPos(), 150, 75, this);
 
         /**Traffic Lights**/
         g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);

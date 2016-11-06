@@ -36,12 +36,19 @@ public class TrafficLight extends Sprite{
         return image;
     }
 
+    public boolean getState() {
+        return waiting;
+    }
+
     public void setTimer() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
-                waiting = true;
+                while(waiting);
             }
         }, 0, 60*1000);
+
+        timer.cancel();
+        this.changeToAmber();
     }
 }

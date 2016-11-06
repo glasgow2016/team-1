@@ -100,7 +100,6 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     }
 
     public void addTuioCursor(TuioCursor tcur) {
-
     }
 
     public void updateTuioCursor(TuioCursor tcur) {
@@ -110,15 +109,12 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     }
 
     public void addTuioBlob(TuioBlob tblb) {
-
     }
 
     public void updateTuioBlob(TuioBlob tblb) {
-
     }
 
     public void removeTuioBlob(TuioBlob tblb) {
-
     }
 
     public void refresh(TuioTime frameTime) {
@@ -128,8 +124,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g2d.drawImage(images.get("junction"), 0, 0, this.getWidth(), this.getHeight(), this);
         g2d.fillOval(ball.x, ball.y, 30, 30);
 
         update(g);
@@ -139,8 +136,6 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     public void update(Graphics g) {
 
         Graphics2D g2 = (Graphics2D) g;
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 
 
         // draw the objects

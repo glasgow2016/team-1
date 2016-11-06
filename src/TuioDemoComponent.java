@@ -33,6 +33,7 @@ import javax.swing.*;
 
 import TUIO.*;
 import game.TrafficLight;
+import game.Background;
 
 public class TuioDemoComponent extends JPanel implements TuioListener {
 
@@ -56,6 +57,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         width = w;
         height = h;
         scale = height / (float) TuioDemoComponent.table_size;
+        bg.setWidth(getWidth());
     }
 
     public void loadImages() throws IOException {
@@ -78,7 +80,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            bg = new Background();
+            bg = new Background(images);
             lightE = new TrafficLight(200, 200, images);
             lightS = new TrafficLight(200, 200, images);
             lightN = new TrafficLight(200, 200, images);
@@ -138,7 +140,8 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        g2d.drawImage(bg.center, 0, 0, this.getWidth(), this.getHeight(), this);
+        g2d.drawImage(bg.getCenter(), bg.getX(), 0, this.getWidth(), this.getHeight(), this);
+        g2d.drawImage(bg.getRight(), bg.getWidth() - 10, 0, this.getWidth(), this.getHeight(), this);
 
         /**Traffic Lights**/
         g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
@@ -160,7 +163,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Enumeration<TuioObject> objects = objectList.elements();
         while (objects.hasMoreElements()) {
             TuioObject tobj = objects.nextElement();
-            if (tobj.getSymbolID() == 1) {
+            if (tobj.getSymbolID() == 2) {
                 bg.moveRight();
             }
             else if (tobj.getSymbolID() == 37) {
@@ -181,17 +184,6 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 lightE.changeToAmber();
                 lightW.changeToAmber();
             }
-        }
-    }
-
-    class Background{
-        int x = 0;
-        int y = 0;
-        BufferedImage center = images.get("junction");
-        BufferedImage right = images.get("t-junction");
-
-        public void moveRight() {
-            x = x + 1;
         }
     }
 

@@ -65,7 +65,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         height = h;
         scale = height / (float) TuioDemoComponent.table_size;
         bg.setWidth(getWidth());
-        bg.setHeight(-getHeight());
+        bg.setHeight(-height);
         lightN.setWidth((int) (width * 0.06));
         lightN.setHeight((int) (height * 0.17));
     }
@@ -164,7 +164,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2d.drawImage(bg.getOrigin(), bg.getX(), bg.getY(), this.getWidth(), this.getHeight(), this);
-        g2d.drawImage(bg.getTop(), bg.getX(), bg.getY(), this.getWidth(), this.getHeight(), this);
+        g2d.drawImage(bg.getTop(), bg.getX(), bg.getHeight(), this.getWidth(), this.getHeight(), this);
         g2d.drawImage(bg.getRight(), bg.getWidth() - 10, 0, this.getWidth(), this.getHeight(), this);
 
         /**Car**/
@@ -233,6 +233,10 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 }
                 case 48: {
                     bg.moveTop();
+                    break;
+                }
+                case 49: {
+                    bg.moveDown();
                     break;
                 }
             }

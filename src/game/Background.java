@@ -22,7 +22,7 @@ public class Background {
         y = 0;
         origin = images.get("junction");
         right = images.get("t-junction");
-        right = images.get("t-junction2");
+        top = images.get("t-junction2");
         farRight = width * 2;
     }
 
@@ -40,12 +40,18 @@ public class Background {
     }
 
     public void moveTop() {
-        if (y < height) {
+        if (height < 0) {
             y+=VELOCITY;
             height+=VELOCITY;
         }
     }
 
+    public void moveDown() {
+        if(y>0) {
+            y -= VELOCITY;
+            height -= VELOCITY;
+        }
+    }
     public int getX() {
         return x;
     }

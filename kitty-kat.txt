@@ -1,3 +1,3 @@
 [
-  "Cats respond most readily to names that end in an \"ee\" sound."
+  "A cats field of vision is about 185 degrees."
 ]

@@ -5,6 +5,7 @@ package game;
  */
 public class MovingSprite extends Sprite{
     int speed;
+    private static final int VELOCITY = 5;
 
     public MovingSprite(int x, int y, int speed) {
         super(x, y);
@@ -20,11 +21,11 @@ public class MovingSprite extends Sprite{
     }
 
     public void moveRight() {
-        xpos += 1;
+        xpos += VELOCITY;
     }
 
     public void moveUp() {
-        ypos -= 1;
+        ypos -= VELOCITY;
     }
 
     public void moveDown() {

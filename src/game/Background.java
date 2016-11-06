@@ -1,6 +1,5 @@
 package game;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Map;
 
@@ -8,26 +7,43 @@ import java.util.Map;
  * Created by megamolis on 06/11/2016.
  */
 public class Background {
+    private static final int VELOCITY = 5;
     int x;
     int y;
-    BufferedImage center;
+    BufferedImage origin;
+    BufferedImage top;
     BufferedImage right;
     int width;
+    int height;
     int farRight;
-
-    public void moveRight() {
-        if (width > 10) {
-            x--;
-            width--;
-        }
-    }
 
     public Background(Map<String, BufferedImage> images) {
         x = 0;
         y = 0;
-        center = images.get("junction");
+        origin = images.get("junction");
         right = images.get("t-junction");
+        right = images.get("t-junction2");
         farRight = width * 2;
+    }
+
+    public void moveRight() {
+        if (width > 10) {
+            x-=VELOCITY;
+            width-=VELOCITY;
+        }
+    }
+    public void moveLeft() {
+        if (x < -1) {
+            x+=VELOCITY;
+            width+=VELOCITY;
+        }
+    }
+
+    public void moveTop() {
+        if (y < height) {
+            y+=VELOCITY;
+            height+=VELOCITY;
+        }
     }
 
     public int getX() {
@@ -46,12 +62,20 @@ public class Background {
         this.y = y;
     }
 
-    public BufferedImage getCenter() {
-        return center;
+    public int getHeight() {
+        return height;
     }
 
-    public void setCenter(BufferedImage center) {
-        this.center = center;
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public BufferedImage getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(BufferedImage origin) {
+        this.origin = origin;
     }
 
     public BufferedImage getRight() {
@@ -76,6 +100,10 @@ public class Background {
 
     public void setFarRight(int farRight) {
         this.farRight = farRight;
+    }
+
+    public BufferedImage getTop() {
+        return top;
     }
 }
 

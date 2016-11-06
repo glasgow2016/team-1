@@ -38,7 +38,7 @@ import game.Background;
 
 public class TuioDemoComponent extends JPanel implements TuioListener {
 
-    private Hashtable<Long, TuioObject> objectList = new Hashtable<Long, TuioObject>();
+    private Hashtable<Long, TuioObject> objectList = new Hashtable<>();
 
     public static final int object_size = 60;
     public static final int table_size = 760;
@@ -61,6 +61,9 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         height = h;
         scale = height / (float) TuioDemoComponent.table_size;
         bg.setWidth(getWidth());
+        bg.setHeight(-getHeight());
+        lightN.setWidth((int) (width * 0.06));
+        lightN.setHeight((int) (height * 0.17));
     }
 
     public void loadImages() throws IOException {
@@ -85,10 +88,10 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 e.printStackTrace();
             }
             bg = new Background(images);
-            lightE = new TrafficLight(200, 200, images);
-            lightS = new TrafficLight(200, 200, images);
-            lightN = new TrafficLight(200, 200, images);
-            lightW = new TrafficLight(200, 200, images);
+            lightE = new TrafficLight(200, 200, 40, 80, images);
+            lightS = new TrafficLight(200, 200, 40, 80, images);
+            lightN = new TrafficLight(200, 200, 40, 80, images);
+            lightW = new TrafficLight(200, 200, 40, 80, images);
 
         }
     }
@@ -144,7 +147,8 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        g2d.drawImage(bg.getCenter(), bg.getX(), 0, this.getWidth(), this.getHeight(), this);
+        g2d.drawImage(bg.getOrigin(), bg.getX(), bg.getY(), this.getWidth(), this.getHeight(), this);
+        g2d.drawImage(bg.getTop(), bg.getX(), bg.getY(), this.getWidth(), this.getHeight(), this);
         g2d.drawImage(bg.getRight(), bg.getWidth() - 10, 0, this.getWidth(), this.getHeight(), this);
 
         /**Car**/
@@ -154,11 +158,11 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         g2d.drawImage(images.get("bike"), bike.getXPos(), bike.getYPos(), 150, 100, this);
 
         /**Traffic Lights**/
-        g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
-        g2d.drawImage(lightN.getImage(), 400, 60, 40, 80, this);
+        g2d.drawImage(lightS.getImage(), 200, 300, lightS.getWidth(), lightS.getHeight(), this);
+        g2d.drawImage(lightN.getImage(), 400, 60, lightN.getWidth(), lightN.getHeight(), this);
 
-        g2d.drawImage(lightE.getImage(), 400, 300, 40, 80, this);
-        g2d.drawImage(lightW.getImage(), 200, 60, 40, 80, this);
+        g2d.drawImage(lightE.getImage(), 400, 300, lightE.getWidth(), lightE.getHeight(), this);
+        g2d.drawImage(lightW.getImage(), 200, 60, lightW.getWidth(), lightW.getHeight(), this);
 
         update(g);
     }
@@ -205,6 +209,14 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 }
                 case 41: {
                     car.moveRight();
+                    break;
+                }
+                case 50: {
+                    bg.moveLeft();
+                    break;
+                }
+                case 48: {
+                    bg.moveTop();
                     break;
                 }
             }

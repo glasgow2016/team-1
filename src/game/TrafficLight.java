@@ -12,8 +12,8 @@ public class TrafficLight extends Sprite{
     /**
      * Created by bianca on 06/11/16.
      */
-    public TrafficLight(int x, int y, Map<String, BufferedImage> images) throws IOException {
-        super(x, y);
+    public TrafficLight(int x, int y, int width, int height, Map<String, BufferedImage> images) throws IOException {
+        super(x, y, width, height);
         image1 = images.get("traffic-lights-green");
         image2 = images.get("traffic-lights-red");
         image3 = images.get("traffic-lights-amber");

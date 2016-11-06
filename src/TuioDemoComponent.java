@@ -155,10 +155,10 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
 
         /**Traffic Lights**/
         g2d.drawImage(lightS.getImage(), 200, 300, 40, 80, this);
-        g2d.drawImage(lightN.getImage(), 400,  60, 40, 80, this);
+        g2d.drawImage(lightN.getImage(), 400, 60, 40, 80, this);
 
         g2d.drawImage(lightE.getImage(), 400, 300, 40, 80, this);
-        g2d.drawImage(lightW.getImage(), 200,  60, 40, 80, this);
+        g2d.drawImage(lightW.getImage(), 200, 60, 40, 80, this);
 
         update(g);
     }
@@ -173,34 +173,42 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
         Enumeration<TuioObject> objects = objectList.elements();
         while (objects.hasMoreElements()) {
             TuioObject tobj = objects.nextElement();
-            if (tobj.getSymbolID() == 2) {
-                bg.moveRight();
-            }
-            else if (tobj.getSymbolID() == 39) {
-                bike.moveUp();
-            }
-            else if (tobj.getSymbolID() == 37) {
-                lightS.changeToGreen();
-                lightN.changeToGreen();
-                lightE.changeToRed();
-                lightW.changeToRed();
-            }
-            else if (tobj.getSymbolID() == 36) {
-                lightS.changeToRed();
-                lightN.changeToRed();
-                lightE.changeToGreen();
-                lightW.changeToGreen();
-            }
-            else if (tobj.getSymbolID() == 38) {
-                lightS.changeToAmber();
-                lightN.changeToAmber();
-                lightE.changeToAmber();
-                lightW.changeToAmber();
-            }
-            else if (tobj.getSymbolID() == 41) {
-                car.moveRight();
+            switch (tobj.getSymbolID()) {
+                case 2: {
+                    bg.moveRight();
+                    break;
+                }
+                case 39: {
+                    bike.moveUp();
+                    break;
+                }
+                case 37: {
+                    lightS.changeToGreen();
+                    lightN.changeToGreen();
+                    lightE.changeToRed();
+                    lightW.changeToRed();
+                    break;
+                }
+                case 36: {
+                    lightS.changeToRed();
+                    lightN.changeToRed();
+                    lightE.changeToGreen();
+                    lightW.changeToGreen();
+                    break;
+                }
+                case 38: {
+                    lightS.changeToAmber();
+                    lightN.changeToAmber();
+                    lightE.changeToAmber();
+                    lightW.changeToAmber();
+                    break;
+                }
+                case 41: {
+                    car.moveRight();
+                    break;
+                }
             }
         }
-    }
 
+    }
 }

@@ -1,17 +1,13 @@
 package game;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 import java.util.Map;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TrafficLight extends Sprite{
-    BufferedImage image, image1, image2;
+    BufferedImage image, image1, image2, image3;
     boolean waiting = false;
     /**
      * Created by bianca on 06/11/16.
@@ -20,6 +16,7 @@ public class TrafficLight extends Sprite{
         super(x, y);
         image1 = images.get("traffic-lights-green");
         image2 = images.get("traffic-lights-red");
+        image3 = images.get("traffic-lights-amber");
         image = image1;
     }
 
@@ -31,18 +28,20 @@ public class TrafficLight extends Sprite{
         image = image2;
     }
 
+    public void changeToAmber() {
+        image = image3;
+    }
+
     public BufferedImage getImage() {
         return image;
     }
 
     public void setTimer() {
-        waiting = true;
-        ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-        service.scheduleWithFixedDelay(new Runnable() {
-            @Override
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
             public void run() {
-                System.out.println(new Date());
+                waiting = true;
             }
-        }, 0, 5, TimeUnit.MINUTES);
+        }, 0, 60*1000);
     }
 }

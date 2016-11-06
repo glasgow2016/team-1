@@ -23,15 +23,11 @@
 */
 
 import java.awt.*;
-import java.awt.geom.*;
-import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -49,10 +45,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
     private float scale = 1.0f;
     public boolean verbose = false;
     private Map<String, BufferedImage> images = new HashMap<>();
-    private TrafficLight lightE ;
-    private TrafficLight lightS ;
-    private TrafficLight lightN ;
-    private TrafficLight lightW ;
+    private TrafficLight lightE, lightS, lightN, lightW;
     Background bg;
 
     public TuioDemoComponent() throws IOException {
@@ -73,7 +66,7 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 "junction",
                 "t-junction",
                 "t-junction2",
-                "traffic-light-template",
+                "traffic-lights-amber",
                 "traffic-lights-green",
                 "traffic-lights-red"
         };
@@ -181,6 +174,12 @@ public class TuioDemoComponent extends JPanel implements TuioListener {
                 lightN.changeToRed();
                 lightE.changeToGreen();
                 lightW.changeToGreen();
+            }
+            else if (tobj.getSymbolID() == 38) {
+                lightS.changeToAmber();
+                lightN.changeToAmber();
+                lightE.changeToAmber();
+                lightW.changeToAmber();
             }
         }
     }
